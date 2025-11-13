@@ -1,8 +1,13 @@
-from antlr4 import*
+from antlr4 import *
 from language.GrammarLexer import GrammarLexer
 from language.GrammarParser import GrammarParser
-import io
+#import lenguage.GrammarLexer as GrammarLexer
+#import lenguage.GrammarParser as GrammarParser
+import traceback
+
+import  io
 import sys
+#import lenguage.MyVisitor as MyVisitor
 from language.MyVisitor import MyVisitor
 
 def run_code(code:str):
@@ -11,17 +16,24 @@ def run_code(code:str):
     stream=CommonTokenStream(lexer)
     parser=GrammarParser(stream)
     tree=parser.program()
-    
-    #Capturan la salida 
-    old_stdout=sys.stdout()
+
+    # Capturan la salida 
+    old_stdout=sys.stdout
     buf = io.StringIO()
     sys.stdout = buf
     
-    #creamos un objeto de nuestro visitor
-    visitor = MyVisitor()
-    #visitamos el arbol con nuestro visitor
-    visitor.visit(tree)
-    #capturamos la salida
-    output=buf.getvalue()
-    
-    return output
+    try:
+        #Creamos un objeto de nuestro visitor
+        visitor = MyVisitor()
+        #Visitamos el arbol con nuestro visitor
+        visitor.visit(tree)
+        # Capturamos la salida
+        output = buf.getvalue()
+        #Retornamos la salida de la operacion
+        return output
+    #Capturamos excepciones
+    except Exception:
+        tb = traceback.format_exc()
+        return tb
+    finally:
+        sys.stdout = old_stdout
