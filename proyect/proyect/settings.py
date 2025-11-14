@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1:5173',
-    'compilador-pred.herokuapp.com'
+    'compilador-ac7a68e.com'
 ]
 
 
