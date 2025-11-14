@@ -57,6 +57,9 @@ MIDDLEWARE = [
 ]
 CORS_ALLOWED_ALL_ORIGINS = True
 
+
+
+
 ROOT_URLCONF = 'proyect.urls'
 
 TEMPLATES = [
