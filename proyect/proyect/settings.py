@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-hjflnhj!3*b#r^05s(bn(jqelt01gck-us&$dhlb81=r#=9cw&
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '127.0.0.1:5173'
+    '127.0.0.1:5173',
+    'compilador-pred.herokuapp.com'
 ]
 
 
